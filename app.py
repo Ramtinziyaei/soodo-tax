@@ -46,7 +46,7 @@ font_base64 = font_to_base64("IRANYekan.ttf")
 
 
 # =========================================================
-# ۲. بخش هدر سایت (Navbar) - نسخه هوشمند با هدف اینستاگرام
+# ۲. بخش هدر سایت (Navbar)
 # =========================================================
 components.html(f"""
 <!DOCTYPE html>
@@ -79,7 +79,7 @@ body {{
     padding: 0 70px;
     border-bottom: 1px solid #e5e7eb;
     background: white;
-    direction: ltr; /* منو راست، برند چپ */
+    direction: ltr;
 }}
 
 .brand {{
@@ -124,20 +124,8 @@ body {{
     font-size: 18px;
     font-weight: 600;
     padding-bottom: 5px;
-    transition: color 0.2s;
 }}
 
-.menu a:hover {{
-    color: #0f8f45;
-}}
-
-.menu a.active {{
-    color: #0f8f45;
-    border-bottom: 3px solid #0f8f45;
-    padding-bottom: 18px; /* هماهنگی خط زیرین با پدینگ اصلی نوبار */
-}}
-
-/* استایل متمایز و کپسولی برای دکمه اینستاگرام */
 .instagram-btn {{
     background: linear-gradient(135deg, #f9ce34 0%, #ee2a7b 50%, #6228d7 100%);
     color: white !important;
@@ -146,36 +134,26 @@ body {{
     font-size: 16px !important;
     font-weight: 700 !important;
     box-shadow: 0px 4px 15px rgba(238, 42, 123, 0.2);
-    transition: transform 0.2s, box-shadow 0.2s !important;
     display: flex;
     align-items: center;
     gap: 8px;
-    border-bottom: none !important; /* حذف خط زیرین منوهای عادی */
-}}
-
-.instagram-btn:hover {{
-    transform: translateY(-2px);
-    box-shadow: 0px 6px 20px rgba(238, 42, 123, 0.35);
-    color: white !important;
 }}
 
 @media (max-width: 768px) {{
     .navbar {{
-        padding: 0 20px;
+        padding: 10px 15px;
+        flex-direction: column;
         height: auto;
-        min-height: 95px;
+        gap: 10px;
     }}
-    .menu {{
-        gap: 20px;
-    }}
-    .instagram-btn {{
-        padding: 8px 16px !important;
-        font-size: 14px !important;
-    }}
+    .brand img {{ width: 70px; }}
+    .brand-title {{ font-size: 20px; }}
+    .menu {{ gap: 15px; width: 100%; justify-content: center; }}
+    .menu a {{ font-size: 15px; }}
+    .instagram-btn {{ padding: 6px 14px !important; font-size: 13px !important; }}
 }}
 </style>
 </head>
-
 <body>
     <div class="navbar">
         <div class="brand">
@@ -185,14 +163,9 @@ body {{
                 <div class="brand-subtitle">ابزارهای کاربردی مالی و اکسل</div>
             </div>
         </div>
-
         <div class="menu">
             <a href="#" class="active" target="_top">خانه</a>
-            
-            <!-- دکمه اینستاگرام با لینک مستقیم شما (جایگزین آدرس اینستاگرامت کن رفیق) -->
-            <a href="https://instagram.com/soodoacademy" class="instagram-btn" target="_blank">
-                📸 اینستاگرام ما
-            </a>
+            <a href="https://instagram.com/soodoacademy" class="instagram-btn" target="_blank">📸 اینستاگرام ما</a>
         </div>
     </div>
 </body>
@@ -200,7 +173,7 @@ body {{
 """, height=110)
 
 # =========================================================
-# ۳. بخش معرفی (Hero Section) - اصلاح فاصله کادر سبز
+# ۳. بخش معرفی (Hero Section) - تقسیم سهم مساوی (۳۳٪)
 # =========================================================
 components.html(f"""
 <!DOCTYPE html>
@@ -227,34 +200,43 @@ body {{
 .hero-section {{
     display: flex;
     align-items: center;
-    justify-content: center; /* تغییر به سنتر برای جمع شدن المان‌ها در وسط صفحه */
-    padding: 20px 5%;
-    gap: 80px; /* ایجاد یک فاصله منطقی و منظم بین کادر سبز و متن اصلی */
+    justify-content: space-between;
+    padding: 10px 5%;
+    gap: 20px;
+    width: 100%;
 }}
 
-.hero-left {{
-    max-width: 500px; /* محدود کردن عرض برای تمرکز بیشتر متن */
-    text-align: right;
+/* تقسیم فضا به ۳ قسمت دقیقاً مساوی */
+.hero-item {{
+    flex: 1;
+    width: 33.33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }}
 
 .hero-right {{
-    display: flex;
-    justify-content: center;
     align-items: center;
 }}
 
 .hero-right img {{
     width: 100%;
-    max-width: 450px;
+    max-width: 280px;
     height: auto;
 }}
 
+.hero-center {{
+    text-align: center;
+    align-items: center;
+    gap: 8px;
+}}
+
 .hero-title {{
-    font-size: 32px;
+    font-size: 26px;
     font-weight: 900;
     color: #1e293b;
-    line-height: 1.5;
-    margin: 0 0 15px 0;
+    line-height: 1.4;
+    margin: 0;
 }}
 
 .hero-title span {{
@@ -262,90 +244,89 @@ body {{
 }}
 
 .hero-subtitle {{
-    font-size: 16px;
+    font-size: 14px;
     color: #64748b;
-    line-height: 1.8;
-    margin: 0 0 25px 0;
+    line-height: 1.6;
+    margin: 0;
 }}
 
 .features-container {{
     display: flex;
-    gap: 10px;
+    gap: 6px;
+    justify-content: center;
     flex-wrap: wrap;
+    margin-top: 5px;
 }}
 
 .feature-box {{
-    display: flex;
-    align-items: center;
-    gap: 6px;
     background-color: #f8fafc;
     border: 1px solid #e2e8f0;
-    padding: 8px 14px;
-    border-radius: 12px;
-    font-size: 13px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 11px;
     font-weight: 600;
     color: #334155;
     white-space: nowrap;
 }}
 
+.hero-left {{
+    align-items: flex-start;
+}}
+
 .hero-info-card {{
     width: 100%;
-    max-width: 310px; /* فیکس کردن اندازه کادر سبز راهنما */
+    max-width: 340px;
     background-color: #f4fbf7;
     border: 1px dashed #0f8f45;
     border-radius: 16px;
-    padding: 20px;
+    padding: 15px;
     text-align: right;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
 }}
 
 .info-card-title {{
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 800;
     color: #0f8f45;
-    display: flex;
-    align-items: center;
-    gap: 6px;
+    margin-bottom: 6px;
 }}
 
 .info-card-text {{
-    font-size: 14px;
+    font-size: 12.5px;
     color: #475569;
-    line-height: 1.7;
+    line-height: 1.6;
 }}
 
 @media (max-width: 992px) {{
     .hero-section {{
         flex-direction: column;
-        text-align: center;
-        padding: 30px 20px;
-        gap: 25px;
+        padding: 15px;
+        gap: 20px;
     }}
-    .hero-left, .hero-right, .hero-info-card {{
+    .hero-item {{
         width: 100%;
-        max-width: 600px;
         text-align: center;
+        align-items: center;
     }}
-    .features-container {{
-        justify-content: center;
+    .hero-left {{
+        align-items: center;
+    }}
+    .hero-right img {{
+        max-width: 200px;
     }}
 }}
 </style>
 </head>
 <body>
     <div class="hero-section">
-        <!-- ستون سمت راست: تصویر هیرو -->
-        <div class="hero-right">
+        <!-- سمت راست: تصویر هیرو -->
+        <div class="hero-item hero-right">
             {"<img src='data:image/png;base64," + calc_base64 + "'>" if calc_base64 else ""}
         </div>
 
-        <!-- ستون وسط: متن‌ها و ویژگی‌ها -->
-        <div class="hero-left">
+        <!-- وسط: متن‌ها -->
+        <div class="hero-item hero-center">
             <h1 class="hero-title">محاسبه‌گر سریع و تخمینی<br><span>مالیات حقوق</span></h1>
-            <p class="hero-subtitle">برآورد مالیات حقوق بر اساس قوانین جاری،<br>قبل از ارسال لیست حقوق</p>
-            
+            <p class="hero-subtitle">برآورد مالیات حقوق بر اساس قوانین جاری، قبل از ارسال لیست حقوق</p>
             <div class="features-container">
                 <div class="feature-box">🛡️ رایگان و امن</div>
                 <div class="feature-box">⚡ محاسبه لحظه‌ای</div>
@@ -353,22 +334,22 @@ body {{
             </div>
         </div>
 
-        <!-- ستون سمت چپ: کادر سبز راهنما که حالا مهار شده -->
-        <div class="hero-info-card">
-            <div class="info-card-title">
-                💡 این ابزار چیست؟
-            </div>
-            <div class="info-card-text">
-                این ابزار برای برآورد سریع مالیات حقوق بر اساس جدول مالیاتی سال جاری طراحی شده است. نتیجه نهایی پس از ارسال لیست در سامانه سازمان امور مالیاتی محاسبه و اعلام می‌شود.
+        <!-- سمت چپ: کادر راهنما -->
+        <div class="hero-item hero-left">
+            <div class="hero-info-card">
+                <div class="info-card-title">💡 این ابزار چیست؟</div>
+                <div class="info-card-text">
+                    این ابزار برای برآورد سریع مالیات حقوق بر اساس جدول مالیاتی سال جاری طراحی شده است. نتیجه نهایی پس از ارسال لیست در سامانه سازمان امور مالیاتی محاسبه و اعلام می‌شود.
+                </div>
             </div>
         </div>
     </div>
 </body>
 </html>
-""", height=390)
+""", height=250) # کاهش ارتفاع کامپوننت برای بالا آمدن کادر محاسبات
 
 # =========================================================
-# ۵. بخش فرم محاسبات (نسخه ۱۰۰٪ ریسپانسیو و هوشمند)
+# ۵. بخش فرم محاسبات - انتقال به بالاتر با کاهش پدینگ و مارجین
 # =========================================================
 components.html(f"""
 <!DOCTYPE html>
@@ -394,29 +375,28 @@ body {{
     border-radius: 24px;
     box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.04);
     border: 1px solid #f1f5f9;
-    padding: 30px 20px;
-    margin: -20px auto 10px auto;
-    width: 92%;
-    max-width: 700px;
+    padding: 20px 15px;
+    margin: 0 auto; /* حذف مارجین بالا برای چسبیدن به بخش هیرو */
+    width: 95%;
+    max-width: 650px;
     text-align: center;
     position: relative;
-    min-height: 290px;
 }}
 .tax-card-title {{
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 800;
     color: #1e293b;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 8px;
 }}
 .tax-card-subtitle {{
-    font-size: 14px;
+    font-size: 13px;
     color: #64748b;
-    margin-bottom: 25px;
-    padding: 0 10px;
+    margin-bottom: 15px;
+    padding: 0 5px;
     line-height: 1.6;
 }}
 .input-container {{
@@ -426,23 +406,22 @@ body {{
     border-radius: 16px;
     overflow: hidden;
     width: 100%;
-    max-width: 550px;
-    margin: 0 auto 12px auto;
+    margin: 0 auto 8px auto;
     background-color: white;
 }}
 .currency-label {{
     background-color: #f8fafc;
     border-right: 1px solid #e2e8f0;
-    padding: 15px 20px;
-    font-size: 16px;
+    padding: 12px 18px;
+    font-size: 15px;
     font-weight: bold;
     color: #1e293b;
 }}
 .amount-input {{
     flex: 1;
     border: none;
-    padding: 15px 10px;
-    font-size: 20px;
+    padding: 12px 10px;
+    font-size: 18px;
     font-weight: 700;
     color: #334155;
     text-align: center;
@@ -450,26 +429,24 @@ body {{
     width: 100%;
 }}
 .input-help-text {{
-    font-size: 13px;
+    font-size: 12px;
     color: #64748b;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }}
 .calc-button {{
     background: linear-gradient(180deg, #0f8f45 0%, #0a6b33 100%);
     color: white;
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 800;
     border: none;
     border-radius: 16px;
-    padding: 15px 0;
+    padding: 14px 0;
     width: 100%;
-    max-width: 550px;
-    margin: 0 auto;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 8px;
     box-shadow: 0px 8px 20px rgba(15, 143, 69, 0.3);
 }}
 .modal-overlay {{
@@ -481,41 +458,41 @@ body {{
     z-index: 99;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 15px;
 }}
 .modal-box {{
-    max-width: 500px;
+    max-width: 450px;
     width: 100%;
     animation: popupAnim 0.25s ease-out;
 }}
 .modal-title {{
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 800;
     color: #1e293b;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }}
 .modal-text {{
-    font-size: 16px;
+    font-size: 15px;
     font-weight: bold;
     color: #166534;
     background-color: #f0fdf4;
-    padding: 15px;
+    padding: 12px;
     border-radius: 14px;
     border: 1px solid #bbf7d0;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     line-height: 1.6;
 }}
 .close-btn {{
     background-color: #ef4444;
     color: white;
     border: none;
-    padding: 12px 25px;
-    font-size: 15px;
+    padding: 10px 20px;
+    font-size: 14px;
     font-weight: bold;
     border-radius: 12px;
     cursor: pointer;
     width: 100%;
-    max-width: 200px;
+    max-width: 160px;
     box-shadow: 0px 4px 12px rgba(239, 68, 68, 0.2);
 }}
 @keyframes popupAnim {{
@@ -526,9 +503,7 @@ body {{
 </head>
 <body>
     <div class="tax-card">
-        <div class="tax-card-title">
-            🟢 محاسبه مالیات حقوق
-        </div>
+        <div class="tax-card-title">🟢 محاسبه مالیات حقوق</div>
         <div class="tax-card-subtitle">مبلغ مزایای مشمول مالیات را پس از کسر معافیت‌ها (بیمه تامین اجتماعی و ...) وارد کنید</div>
         
         <div class="input-container">
@@ -536,9 +511,7 @@ body {{
             <input type="text" id="salary" class="amount-input" placeholder="1,000,000,000" />
         </div>
         
-        <div class="input-help-text">
-            ℹ️ مبلغ را به ریال وارد کنید
-        </div>
+        <div class="input-help-text">ℹ️ مبلغ را به ریال وارد کنید</div>
 
         <button class="calc-button" onclick="calculateTaxPopup()">
             ⚡ محاسبه مالیات
@@ -550,11 +523,9 @@ body {{
                 <div id="modalResult" class="modal-text"></div>
                 <button class="close-btn" onclick="closeModal()">بستن پنجره</button>
             </div>
-        </div>
-    </div>
+        </div></div>
 
     <script>
-    // جداکننده سه رقم سه رقم بدون خطا
     document.getElementById('salary').addEventListener('input',function (e) {{
         var value = e.target.value.replace(/,/g, '');
         if (value === "") {{
@@ -606,4 +577,4 @@ body {{
     </script>
 </body>
 </html>
-""", height=350)
+""", height=380)
