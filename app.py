@@ -76,7 +76,7 @@ body {{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 70px;
+    padding: 0 40px;
     border-bottom: 1px solid #e5e7eb;
     background: white;
     direction: ltr;
@@ -85,7 +85,7 @@ body {{
 .brand {{
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
     direction: ltr;
 }}
 
@@ -94,63 +94,62 @@ body {{
 }}
 
 .brand img {{
-    width: 120px;
+    width: 100px;
     height: auto;
 }}
 
 .brand-title {{
-    font-size: 26px;
+    font-size: 24px;
     font-weight: 900;
     color: #111;
     line-height: 1.2;
 }}
 
 .brand-subtitle {{
-    font-size: 13px;
+    font-size: 12px;
     color: #555;
-    margin-top: 4px;
+    margin-top: 2px;
 }}
 
 .menu {{
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 25px;
     direction: rtl;
 }}
 
 .menu a {{
     text-decoration: none;
     color: #222;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
-    padding-bottom: 5px;
 }}
 
 .instagram-btn {{
     background: linear-gradient(135deg, #f9ce34 0%, #ee2a7b 50%, #6228d7 100%);
     color: white !important;
-    padding: 10px 24px !important;
+    padding: 8px 20px !important;
     border-radius: 50px;
-    font-size: 16px !important;
+    font-size: 15px !important;
     font-weight: 700 !important;
-    box-shadow: 0px 4px 15px rgba(238, 42, 123, 0.2);
+    box-shadow: 0px 4px 12px rgba(238, 42, 123, 0.2);
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
 }}
 
 @media (max-width: 768px) {{
     .navbar {{
-        padding: 10px 15px;
+        padding: 8px 10px;
         flex-direction: column;
         height: auto;
-        gap: 10px;
+        gap: 6px;
     }}
-    .brand img {{ width: 70px; }}
-    .brand-title {{ font-size: 20px; }}
-    .menu {{ gap: 15px; width: 100%; justify-content: center; }}
-    .menu a {{ font-size: 15px; }}
-    .instagram-btn {{ padding: 6px 14px !important; font-size: 13px !important; }}
+    .brand img {{ width: 60px; }}
+    .brand-title {{ font-size: 18px; }}
+    .menu {{ gap: 12px; width: 100%; justify-content: center; }}
+    .menu a {{ font-size: 14px; }}
+    .instagram-btn {{ padding: 6px 12px !important; font-size: 12px !important; }}
 }}
 </style>
 </head>
@@ -173,7 +172,7 @@ body {{
 """, height=110)
 
 # =========================================================
-# ۳. بخش معرفی (Hero Section) - تقسیم سهم مساوی (۳۳٪)
+# ۳ و ۴ و ۵. بخش هیرو و فرم محاسبات به صورت یکپارچه (تضمین فونت و چیدمان)
 # =========================================================
 components.html(f"""
 <!DOCTYPE html>
@@ -195,40 +194,34 @@ body {{
     margin: 0;
     background: transparent;
     overflow-x: hidden;
+    padding-bottom: 50px;
 }}
 
+/* ساختار بخش معرفی بالایی */
 .hero-section {{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 5%;
-    gap: 20px;
+    padding: 15px 4%;
+    gap: 25px;
     width: 100%;
 }}
 
-/* تقسیم فضا به ۳ قسمت دقیقاً مساوی */
-.hero-item {{
-    flex: 1;
-    width: 33.33%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}}
-
 .hero-right {{
-    align-items: center;
+    width: 30%;
+    display: flex;
+    justify-content: center;
 }}
 
 .hero-right img {{
     width: 100%;
-    max-width: 280px;
+    max-width: 250px;
     height: auto;
 }}
 
 .hero-center {{
+    width: 40%;
     text-align: center;
-    align-items: center;
-    gap: 8px;
 }}
 
 .hero-title {{
@@ -236,7 +229,7 @@ body {{
     font-weight: 900;
     color: #1e293b;
     line-height: 1.4;
-    margin: 0;
+    margin: 0 0 10px 0;
 }}
 
 .hero-title span {{
@@ -255,7 +248,7 @@ body {{
     gap: 6px;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 5px;
+    margin-top: 10px;
 }}
 
 .feature-box {{
@@ -270,12 +263,14 @@ body {{
 }}
 
 .hero-left {{
-    align-items: flex-start;
+    width: 30%;
+    display: flex;
+    justify-content: flex-start;
 }}
 
 .hero-info-card {{
     width: 100%;
-    max-width: 340px;
+    max-width: 300px;
     background-color: #f4fbf7;
     border: 1px dashed #0f8f45;
     border-radius: 16px;
@@ -291,97 +286,25 @@ body {{
 }}
 
 .info-card-text {{
-    font-size: 12.5px;
+    font-size: 12px;
     color: #475569;
     line-height: 1.6;
 }}
 
-@media (max-width: 992px) {{
-    .hero-section {{
-        flex-direction: column;
-        padding: 15px;
-        gap: 20px;
-    }}
-    .hero-item {{
-        width: 100%;
-        text-align: center;
-        align-items: center;
-    }}
-    .hero-left {{
-        align-items: center;
-    }}
-    .hero-right img {{
-        max-width: 200px;
-    }}
-}}
-</style>
-</head>
-<body>
-    <div class="hero-section">
-        <!-- سمت راست: تصویر هیرو -->
-        <div class="hero-item hero-right">
-            {"<img src='data:image/png;base64," + calc_base64 + "'>" if calc_base64 else ""}
-        </div>
-
-        <!-- وسط: متن‌ها -->
-        <div class="hero-item hero-center">
-            <h1 class="hero-title">محاسبه‌گر سریع و تخمینی<br><span>مالیات حقوق</span></h1>
-            <p class="hero-subtitle">برآورد مالیات حقوق بر اساس قوانین جاری، قبل از ارسال لیست حقوق</p>
-            <div class="features-container">
-                <div class="feature-box">🛡️ رایگان و امن</div>
-                <div class="feature-box">⚡ محاسبه لحظه‌ای</div>
-                <div class="feature-box">✅ سریع و دقیق</div>
-            </div>
-        </div>
-
-        <!-- سمت چپ: کادر راهنما -->
-        <div class="hero-item hero-left">
-            <div class="hero-info-card">
-                <div class="info-card-title">💡 این ابزار چیست؟</div>
-                <div class="info-card-text">
-                    این ابزار برای برآورد سریع مالیات حقوق بر اساس جدول مالیاتی سال جاری طراحی شده است. نتیجه نهایی پس از ارسال لیست در سامانه سازمان امور مالیاتی محاسبه و اعلام می‌شود.
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
-""", height=250) # کاهش ارتفاع کامپوننت برای بالا آمدن کادر محاسبات
-
-# =========================================================
-# ۵. بخش فرم محاسبات - انتقال به بالاتر با کاهش پدینگ و مارجین
-# =========================================================
-components.html(f"""
-<!DOCTYPE html>
-<html dir="rtl">
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-@font-face {{
-    font-family: 'IRANYekan';
-    src: url(data:font/ttf;base64,{font_base64}) format('truetype');
-}}
-* {{
-    font-family: 'IRANYekan', Tahoma, sans-serif;
-    box-sizing: border-box;
-}}
-body {{
-    margin: 0;
-    background-color: transparent;
-    overflow: hidden;
-}}
+/* استایل کادر محاسبه مالیات (وسط‌چین و شیک) */
 .tax-card {{
     background-color: white;
     border-radius: 24px;
     box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.04);
     border: 1px solid #f1f5f9;
-    padding: 20px 15px;
-    margin: 0 auto; /* حذف مارجین بالا برای چسبیدن به بخش هیرو */
-    width: 95%;
-    max-width: 650px;
+    padding: 25px 20px;
+    margin: 15px auto 0 auto;
+    width: 92%;
+    max-width: 620px;
     text-align: center;
     position: relative;
 }}
+
 .tax-card-title {{
     font-size: 20px;
     font-weight: 800;
@@ -392,13 +315,14 @@ body {{
     justify-content: center;
     gap: 8px;
 }}
+
 .tax-card-subtitle {{
     font-size: 13px;
     color: #64748b;
-    margin-bottom: 15px;
-    padding: 0 5px;
+    margin-bottom: 18px;
     line-height: 1.6;
 }}
+
 .input-container {{
     display: flex;
     align-items: center;
@@ -409,6 +333,7 @@ body {{
     margin: 0 auto 8px auto;
     background-color: white;
 }}
+
 .currency-label {{
     background-color: #f8fafc;
     border-right: 1px solid #e2e8f0;
@@ -417,6 +342,7 @@ body {{
     font-weight: bold;
     color: #1e293b;
 }}
+
 .amount-input {{
     flex: 1;
     border: none;
@@ -426,13 +352,14 @@ body {{
     color: #334155;
     text-align: center;
     outline: none;
-    width: 100%;
 }}
+
 .input-help-text {{
     font-size: 12px;
     color: #64748b;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
 }}
+
 .calc-button {{
     background: linear-gradient(180deg, #0f8f45 0%, #0a6b33 100%);
     color: white;
@@ -449,6 +376,7 @@ body {{
     gap: 8px;
     box-shadow: 0px 8px 20px rgba(15, 143, 69, 0.3);
 }}
+
 .modal-overlay {{
     display: none;
     position: absolute;
@@ -460,17 +388,19 @@ body {{
     justify-content: center;
     padding: 15px;
 }}
+
 .modal-box {{
     max-width: 450px;
     width: 100%;
-    animation: popupAnim 0.25s ease-out;
 }}
+
 .modal-title {{
     font-size: 18px;
     font-weight: 800;
     color: #1e293b;
     margin-bottom: 12px;
 }}
+
 .modal-text {{
     font-size: 15px;
     font-weight: bold;
@@ -482,6 +412,7 @@ body {{
     margin-bottom: 15px;
     line-height: 1.6;
 }}
+
 .close-btn {{
     background-color: #ef4444;
     color: white;
@@ -493,15 +424,63 @@ body {{
     cursor: pointer;
     width: 100%;
     max-width: 160px;
-    box-shadow: 0px 4px 12px rgba(239, 68, 68, 0.2);
 }}
-@keyframes popupAnim {{
-    from {{ transform: scale(0.95); opacity: 0; }}
-    to {{ transform: scale(1); opacity: 1; }}
+
+/* 📱 واکنش‌گرایی کامل برای موبایل */
+@media (max-width: 992px) {{
+    .hero-section {{
+        flex-direction: column;
+        padding: 15px;
+        gap: 20px;
+    }}
+    .hero-right, .hero-center, .hero-left {{
+        width: 100%;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }}
+    .hero-right img {{
+        max-width: 180px;
+    }}
+    .hero-info-card {{
+        max-width: 100%;
+    }}
+    .tax-card {{
+        width: 95%;
+        padding: 20px 15px;
+    }}
 }}
 </style>
 </head>
 <body>
+
+    <!-- بخش معرفی سه‌قسمتی -->
+    <div class="hero-section">
+        <div class="hero-right">
+            {"<img src='data:image/png;base64," + calc_base64 + "'>" if calc_base64 else ""}
+        </div>
+
+        <div class="hero-center">
+            <h1 class="hero-title">محاسبه‌گر سریع و تخمینی<br><span>مالیات حقوق</span></h1>
+            <p class="hero-subtitle">برآورد مالیات حقوق بر اساس قوانین جاری، قبل از ارسال لیست حقوق</p>
+            <div class="features-container">
+                <div class="feature-box">🛡️ رایگان و امن</div>
+                <div class="feature-box">⚡ محاسبه لحظه‌ای</div>
+                <div class="feature-box">✅ سریع و دقیق</div>
+            </div>
+        </div>
+
+        <div class="hero-left">
+            <div class="hero-info-card">
+                <div class="info-card-title">💡 این ابزار چیست؟</div>
+                <div class="info-card-text">
+                    این ابزار برای برآورد سریع مالیات حقوق بر اساس جدول مالیاتی سال جاری طراحی شده است. نتیجه نهایی پس از ارسال لیست در سامانه سازمان امور مالیاتی محاسبه و اعلام می‌شود.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- فرم محاسبات با فونت اصلی یکپارچه -->
     <div class="tax-card">
         <div class="tax-card-title">🟢 محاسبه مالیات حقوق</div>
         <div class="tax-card-subtitle">مبلغ مزایای مشمول مالیات را پس از کسر معافیت‌ها (بیمه تامین اجتماعی و ...) وارد کنید</div>
@@ -523,10 +502,11 @@ body {{
                 <div id="modalResult" class="modal-text"></div>
                 <button class="close-btn" onclick="closeModal()">بستن پنجره</button>
             </div>
-        </div></div>
+        </div>
+    </div>
 
     <script>
-    document.getElementById('salary').addEventListener('input',function (e) {{
+    document.getElementById('salary').addEventListener('input', function (e) {{
         var value = e.target.value.replace(/,/g, '');
         if (value === "") {{
             e.target.value = "";
@@ -551,7 +531,7 @@ body {{
         else if (salaryNum <= 1000000000) {{
             tax = (400000000 * 0.10) + (salaryNum - 800000000) * 0.15;
         }} 
-        else if (salaryNum <= 1200000000) {{
+        else if (salaryNum<= 1200000000) {{
             tax = (400000000 * 0.10) + (200000000 * 0.15) + (salaryNum - 1000000000) * 0.20;
         }} 
         else if (salaryNum <= 1400000000) {{
@@ -577,4 +557,4 @@ body {{
     </script>
 </body>
 </html>
-""", height=380)
+""", height=650)
